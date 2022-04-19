@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<html>
+<meta charset="utf-8">
+<head>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+
+
+</head>
+<body>
+<br>
+	
+
+
+  <div class="slide-wrap">
+  <div class="slide-box">
+  <a href="https://www.youtube.com/watch?v=mqqft2x_Aa4">
+  <%= image_tag 'the batman.jpg', width: "70px", height:"70px" %>
+  </a>
+</div>
+
+<div class="slide-box">
+  <a href="https://www.youtube.com/watch?v=ohF5ZO_zOYU">
+  <%= image_tag 'hangover.png', width: "70px", height:"70px" %>
+  </a>
+</div>
+
+<div class="slide-box">
+  <a href="https://www.bing.com/videos/search?q=spider+man+no+way+home+official+trailer&&view=detail&mid=55046EE098B74D6C9D9B55046EE098B74D6C9D9B&&FORM=VRDGAR&ru=%2Fvideos%2Fsearch%3Fq%3Dspider%2Bman%2Bno%2Bway%2Bhome%2Bofficial%2Btrailer%26FORM%3DHDRSC3">
+  <%= image_tag 'final.jpg', width: "70px", height:"70px" %>
+  </a>
+</div>
+
+<div class="slide-box">
+<a href="https://www.youtube.com/watch?v=T7A810duHvw">
+<%= image_tag 'about time.jpg', width: "70px", height:"70px" %>
+  </a>
+</div>
+
+<div class="slide-box">
+  <a href="https://www.youtube.com/watch?v=HkZYbOH0ujw">
+  <%= image_tag 'it follows.jpg', width: "70px", height:"70px" %>
+  </a>
+</div>
+
+<div class="slide-box">
+  <a href="https://www.youtube.com/watch?v=C2NWGAqZhF4">
+  <%= image_tag 'now you see me.jpg', width: "70px", height:"70px" %>
+  </a>
+</div> 
+
+</div>
+
+<aside>
+<br>
+<br>
+<br><div class="box4">
+
+    <h3 class="subtitle">Menu.</h3>
+    </div>
+    <br>
+
+    
+    <ul class="sub-menu">
+    
+    <li><a href="http://localhost:3000/statics/show"> サイト詳細</a></li>
+    
+    <% if user_signed_in? %>
+ <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+ <% else %>
+ <li><%= link_to "新規登録", new_user_registration_path %></li>
+ <li><%= link_to "ログイン", new_user_session_path %></li>
+<% end %>
+
+    <li><%= link_to "新規投稿へ", new_movie_path %></li>
+
+    <li><% if user_signed_in? %>
+    <%= link_to "マイページへ", user_path(current_user.id) %>
+    <% end %>
+    </li>
+    </ul>
+    
+    <br>
+    <br>
+    
+ 
+    <p class="info-title">
+    <div class="box4">
+    <p>~ Movie ~</p>
+</div>
+    
+    </p>
+    <div class="about-container">
+      <p class="info-text">
+      <b>どんな映画でも</b>
+        <br>
+        <span class="font-small">
+        世界各国のマイナーな映画や短編作品等どんな作品でも投稿できます。
+        
+        
+        </span>
+      </p>
+
+      <p class="info-text">
+        <b>検索機能</b>
+        <br>
+        <span class="font-small">
+        自由に投稿を検索できます！
+        <br>
+        他の人のお気に入り作品を見てみましょう！
+        </span>
+      </p>
+
+      <p class="info-text">
+        <b>ランキング機能</b>
+        <br>
+        <span class="font-small">
+        いいね！の多い順に作品が表示されるので
+        <br>
+        いま人気の作品が一目でわかります！
+        </span>
+      </p>
+    </div>
+  </section>
+   </aside>
+
+   
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+
+
+
+
+
+ <%= form_tag({controller:"movies",action:"index"}, method: :get) do %>
+ 
+  <%= text_field_tag :search %>
+  
+  <%= submit_tag '検索する', class:"btn btn-dark" %>
+
+  <% end %>
+
+
+
+<br>
+<br>
+<h2>Movie Ranking</h2>
+<br>
+<h7>
+ <%= page_entries_info @movies %>
+<%= paginate @movies %>
+</h7>
+
+<div class="movies-container">
+
+
+  
+  <% @movies.each do |t| %>
+    <% end %>
+    <% @rank_movies.each.with_index(1) do |t,i| %>
+      
+    
+  <div class="card" style="width: 28rem; height: 52rem; ">
+  
+  <div class="card-header">
+  No.<%= i %>
+  </div>
+
+  <%= image_tag t.image_url, size: "250×650" if t.image? %>
+  <div class="card-body">
+    <h5 class="card-title"><%= t.title %></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+
+  <li class="list-group-item"><%= t.released_year %>年</li>
+
+    <li class="list-group-item">
+    <%= t.rating %></li>
+
+    <li class="list-group-item">
+    <%= link_to "詳細へ", movie_path(t.id) %>
+    <% if user_signed_in? && current_user.id == t.user_id %>
+    <%= link_to "編集する", edit_movie_path(t.id) %>
+    <%= link_to "削除する", movie_path(t.id), method: :delete %> 
+    <% end %>
+
+    <li class="list-group-item">いいね！
+    <% if user_signed_in? %>
+        <% if current_user.already_liked?(t) %>
+          <%= link_to movie_like_path(id: t.id, movie_id: t.id), method: :delete do %>
+            <i class="fas fa-kiss-wink-heart"></i><%= t.likes.count %></li>
+        <% end %>
+        <% else %>
+        <%= link_to movie_likes_path(id: t.id, movie_id: t.id), method: :post do %>
+            <i class="fas fa-kiss-wink-heart"></i><%= t.likes.count %>
+    <% end %>
+  <% end %>
+    <% else %>
+      <i class="fas fa-kiss-wink-heart"></i><%= t.likes.count %>
+    <% end %></li>
+    
+    <li class="list-group-item"><%= t.reflections %></li>
+  
+
+  </ul>
+  <br>
+</div>
+  
+<% end %>
+
+<div class="banner"></div>
+
+
+
+
+    
+</body>
+
+
+
+
+</html>
+
+
+

@@ -1,0 +1,101 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+ body{
+    padding: 0;
+     margin: 0;
+    text-align:center
+    }
+  body {
+    font-family: serif;
+    font-weight: 500;
+    
+  }
+
+
+
+  
+  header {
+    background-color: #131212;
+    height: 100px;
+    font-weight:bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: larger;
+  }
+
+  a:hover {
+    color: rgb(241, 227, 28);
+   
+    font-family: serif;
+  }
+  header a {
+    color: rgb(241, 236, 236); 
+    text-decoration: none; 
+    font-style:oblique;
+    font-size: larger;
+    font-family: serif;
+  }
+    
+  a {
+    color: rgb(23, 21, 21);
+    text-decoration: underline;
+    font-family: serif;
+  }
+  
+  
+    
+  header h1 {
+    color: white;
+    margin-left: 20px;
+  }
+    
+  .header-list {
+    display: flex;
+    align-items: center;
+    font-style: oblique;
+    margin-top: 20px;
+  }
+
+  header ul {display: flex;
+  }
+  header li {
+    list-style:none;
+    margin-right: 40px;
+  }
+
+  .first-block {
+    height: 500px;
+    background-color: #ddd;
+  }
+  
+  
+  footer {
+    color: rgb(245, 238, 238);
+    height: 80px;
+    background-color: rgb(37, 34, 34);
+    bottom: -10px;
+    width: 100%;
+    display:flex;
+    align-items: center;
+    position:fixed;
+    justify-content: center;
+    font-family: serif;
+    font-weight:bolder
+    
+  }

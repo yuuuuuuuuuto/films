@@ -1,0 +1,74 @@
+
+<br>
+<h1>New Movie</h1>
+<br>
+<div class="box11">
+    <p>
+<%= form_for @movie do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, :size => 30 %>
+  </div>
+<br>
+  <div class="field">
+    <%= f.label :released_year %>
+    <%= f.number_field :released_year, :size => 10 %>
+  </div>
+<br>
+  <div class="field">
+    <%= f.label :rating %>
+    <%= f.select :rating, 
+    [["☆1", "☆1"], 
+    ["☆☆2", "☆☆2"], 
+    ["☆☆☆3", "☆☆☆3"],
+    ["☆☆☆☆4", "☆☆☆☆4"],
+    ["☆☆☆☆☆5", "☆☆☆☆☆5"]], include_blank: "選択して下さい" %>
+  </div>
+<br>
+  <div class="field">
+    <%= f.label :reflections %>
+    <%= f.text_area :reflections, :size => "30x2" %>
+  </div>
+ 
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <br>
+  <%= f.submit "Movieを投稿する", class:"btn btn-dark" %>
+<% end %>
+<br>
+<%= link_to "Movie一覧に戻る", movies_path %>
+
+
+</p>
+
+</div>
+
+
+<style>
+.box11{
+  padding: 30px 30px;
+   width:700px;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    margin-left: 400px; 
+    margin-right: 100px;
+    align-items: center;
+  justify-content: center;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+.box11 p {
+  margin-left: 100; 
+  margin-right: 100;
+    padding: 0;
+}
+
+h1{
+  color:white;
+}
+
+</style>

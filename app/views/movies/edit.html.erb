@@ -1,0 +1,64 @@
+
+<br>
+<h2>Movie Edit</h2>
+<br>
+<%= form_for @movie do |f| %>
+  <div class="box11">
+  <p>
+  <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title, :size => 30 %>
+      <br>
+      <br>
+      <%= f.label :released_year %>
+      <%= f.text_field :released_year, :size => 15 %>
+      <br>
+      <br>
+      <%= f.label :rating %>
+      <%= f.text_field :rating, :size => 15 %>
+      <br>
+      <br>
+      <%= f.label :reflections %>
+      <%= f.text_field :reflections, :size => "50×2" %>
+      <br>
+      <br>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+      <br>
+      <br>
+      <%= f.submit "編集する" %>
+  <% end %>
+  <br>
+  <br>
+  <%= link_to 'Movie一覧に戻る', movies_path %>
+  </div>
+  </div>
+  </p>
+  
+
+  <style>
+.box11{
+  padding: 30px 30px;
+   width:700px;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    margin-left: 400px; 
+    margin-right: 100px;
+    align-items: center;
+  justify-content: center;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+.box11 p {
+  margin-left: 100; 
+  margin-right: 100;
+    padding: 0;
+}
+
+h1{
+  color:white;
+}
+
+</style>

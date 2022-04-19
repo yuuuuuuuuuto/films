@@ -1,0 +1,60 @@
+<br>
+<h1>Movie Detail</h1>
+<br>
+<div class="box11">
+    <p>
+
+<div class="movie">
+  <p> <%= @movie.title %></p>
+  <p> <%= @movie.released_year %></p>
+  <p> <%= @movie.rating %></p>
+  <p><%= @movie.reflections %></p>
+  <p><%= @movie.created_at %></p>
+  <p><%= @movie.image %></p>
+</div>
+
+<% if user_signed_in? %>
+      <% if current_user.already_liked?(@movie) %>
+          <%= link_to movie_like_path(@movie), method: :delete do %>
+             <p>いいねを取り消す</p><%= @movie.likes.count %>
+          <% end %>
+      <% else %>
+          <%= link_to movie_likes_path(@movie), method: :post do %>
+             <p>いいね</p><%= @movie.likes.count %>
+          <% end %>
+      <% end %>
+  <% else %>
+      <p>いいねの数 = </p><%= @movie.likes.count %>
+  <% end %>
+<br>
+<br>
+
+<%= link_to "movie一覧に戻る", movies_path %>
+</p>
+</div>
+<style>
+.box11{
+  padding: 30px 30px;
+   width:700px;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    margin-left: 400px; 
+    margin-right: 100px;
+    align-items: center;
+  justify-content: center;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+.box11 p {
+  margin-left: 100; 
+  margin-right: 100;
+    padding: 0;
+}
+
+h1{
+  color:white;
+}
+
+</style>

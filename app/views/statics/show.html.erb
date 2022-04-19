@@ -1,0 +1,211 @@
+
+<html lang="ja"><!--言語の指定-->
+<head><!--ページに表示されない情報(サイトの裏側の設定)-->
+  <meta charset="utf-8">
+  <title></title><!--ブラウザのタブのタイトルを指定-->
+  <link rel="stylesheet" href="./stylesheets/index.css">
+</head>
+<body>
+  
+
+<!--  コンテンツを一旦仮置きする  -->
+  <section id="first-block">
+    <div class="title-container">
+    <%= image_tag 'movies_title.jpg', width: "870px", height:"500px" %>
+    
+    </div>
+  </section>
+  <section id="second-block">
+    <p class="info-titles">
+        About 
+    </p>
+    <div class="about-container">
+      <p class="info-texts">
+        <b>どんな映画でも</b>
+        <br>
+        <span class="font-small">
+        世界各国のマイナーな映画や短編作品等
+        <br>
+        どんな作品でも投稿できます！
+        <br>
+        自分のお気に入りを投稿しましょう！
+        </span>
+      </p>
+
+      <p class="info-texts">
+        <b>もっと自由に</b>
+        <br>
+        <span class="font-small">
+        自分の好きな作品を自由に投稿、編集、削除できます。
+        <br>
+        そのため従来のサイトより柔軟性のあるサイトになっています。
+        <br>
+        
+        </span>
+      </p>
+
+      <p class="info-texts">
+        <b>みんなで共有</b>
+        <br>
+        <span class="font-small">
+        他のユーザーの投稿に自由にいいね！を付けられます。
+        <br>
+        いいねの多い作品は上位に配置されるので、
+        <br>
+        ユーザーの間で人気な作品が一目でわかります！
+        </span>
+      </p>
+    </div>
+  </section>
+  <section id="third-block">
+    <p class="events-title">
+      こんな経験ありませんか？
+    </p>
+    <div class="event-container">
+      <div class="event">
+      
+
+      <div class="event">
+        <p class="event-name">
+        <span>好きな映画が表示されない！</span>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          海外のマイナーな作品(インドやイタリアの作品)や短編作品等は、
+          <br>
+          大手の映画レビューサイトだとそもそも掲載されていなかったり、
+          <br>
+          掲載されていてもほとんどコメントがないので、
+          <br>
+          ユーザー側にとって、あまり参考にならないですよね・・・。
+        </p>
+        <%= image_tag 'explanation.jpg', width: "750px", height:"550px" %>
+      </div>
+    </div>
+  </section>
+  <!--   Third block End   -->
+<!--  コンテンツはここまで  -->
+
+  <section id="fouth-block">
+  <br>
+  <h1>当サイトでは上記の悩みを解決し、</h1>
+  <br>
+  <h1>ユーザーのニーズにあった機能を提供します！</h1>
+  </section>
+
+  
+</body>
+</html>
+
+    <style>
+
+   #first-block {
+  background-image: url("../../../images/movies.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 550px;
+background-color: rgb(103, 105, 107);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#second-block {
+   background-color: #f0f0f0;
+   text-align: center;
+   padding-top: 100px;
+   padding-bottom: 100px;
+ }
+ 
+ .about-container {
+   display: flex;
+   justify-content: space-between;
+   flex-direction: row;
+   align-items: center;
+ }
+ 
+ .info-titles {
+   font-size: 60px;
+   font-family: serif;
+   margin-bottom: 20px;
+   color: #444;
+   text-align: center;
+ }
+ 
+ .info-texts {
+   font-size: 20px;
+   margin-bottom: 20px;
+   color: #444;
+   width: 30%;
+ }
+ 
+ .font-small {
+   font-size: 15px;
+   color: #444;
+ }
+ /*   Second block End   */
+
+#third-block {
+   background-color: rgb(22, 22, 94);
+   text-align: center;
+   padding-top: 100px;
+   padding-bottom: 100px;
+ }
+ 
+ .event-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+ 
+   width: 100%;
+ }
+ 
+ .events-title {
+   font-size: 60px;
+   font-family: serif;
+   color: white;
+ }
+ 
+ .event {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   color: white;
+ 
+   margin-top: 30px;
+   margin-bottom: 20px;
+   width: 100%;
+ }
+ 
+ .event-name {
+   font-size: 20px;
+   padding: 10px;
+   width: 40%;
+ }
+ 
+ span {
+   font-size: 40px;
+   font-family: serif;
+ }
+ 
+ .event-image {
+   width: 40%;
+   height: 330px;
+ }
+ /*   Third block End   */
+
+ #fouth-block {
+  background-color: white;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+</style>
+
+
+
+ 
