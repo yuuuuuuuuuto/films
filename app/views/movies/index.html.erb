@@ -56,36 +56,10 @@
 <aside>
 <br>
 <br>
+<br>
 <br><div class="box4">
 
-    <h3 class="subtitle">Menu.</h3>
-    </div>
-    <br>
-
     
-    <ul class="sub-menu">
-    
-    <li><a href="https://cineasta-yuto-0925.herokuapp.com/statics/show"> サイト詳細</a></li>
-    
-    <% if user_signed_in? %>
- <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
- <% else %>
- <li><%= link_to "新規登録", new_user_registration_path %></li>
- <li><%= link_to "ログイン", new_user_session_path %></li>
-<% end %>
-
-    <li><%= link_to "新規投稿へ", new_movie_path %></li>
-
-    <li><% if user_signed_in? %>
-    <%= link_to "マイページへ", user_path(current_user.id) %>
-    <% end %>
-    </li>
-    </ul>
-    
-    <br>
-    <br>
-    
- 
     <p class="info-title">
     <div class="box4">
     <p>~ Movie ~</p>
@@ -126,26 +100,38 @@
   </section>
    </aside>
 
-   
+   <div class="fixed-background background-1">
+   <br>
+	
+</div>
+ 
+<div class="scroll-background  background-color-1">
+	<p>コンテンツ</p>
+</div>
+ 
+<div class="fixed-background background-2">
+	
+</div>
+ 
+<div class="scroll-background background-color-2">
+	
+</div>
    <br>
    <br>
    <br>
    <br>
    <br>
    <br>
-
-
-
 
 
  <%= form_tag({controller:"movies",action:"index"}, method: :get) do %>
- 
-  <%= text_field_tag :search %>
   
+  <%= text_field_tag :search %>
+
+
   <%= submit_tag '検索する', class:"btn btn-dark" %>
 
   <% end %>
-
 
 
 <br>
@@ -160,12 +146,12 @@
 <div class="movies-container">
 
 
-  
-  <% @movies.each do |t| %>
-    <% end %>
+
+  <% @movies.each do |t| %><% end %>
+    
     <% @rank_movies.each.with_index(1) do |t,i| %>
       
-    
+      
   <div class="card" style="width: 28rem; height: 52rem; ">
   
   <div class="card-header">
@@ -206,7 +192,7 @@
     <% end %></li>
     
     <li class="list-group-item"><%= t.reflections %></li>
-  
+    
 
   </ul>
   <br>
